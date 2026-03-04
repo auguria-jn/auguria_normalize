@@ -229,16 +229,41 @@ Appliquer le gabarit cartouche industriel Auguria (voir section 6 pour le gabari
 
 ---
 
-## 5. Génération automatique de l'icône du module
+## 5. Icônes du module
 
-### Analyse
+Le module utilise **deux icônes distinctes** avec des rôles différents :
+
+### 5.1 Icône du module — `static/description/icon.png`
+
+C'est l'icône affichée sur l'**Odoo Apps Store** et dans la liste des applications (menu Apps). Elle porte l'**identité Auguria** et reste identique pour tous les modules.
+
+- **Contenu** : logo G condensé Auguria (orange `#FFBA00` sur fond transparent ou blanc)
+- **Format** : PNG, `128×128 px`
+- **Source** : fourni dans les assets Auguria ou généré avec Pillow :
+```python
+from PIL import Image, ImageDraw, ImageFont
+
+SIZE = 128
+img = Image.new('RGBA', (SIZE, SIZE), (0, 0, 0, 0))
+draw = ImageDraw.Draw(img)
+draw.rounded_rectangle([0, 0, SIZE-1, SIZE-1], radius=26, fill='#FFFFFF')
+# Dessiner le G stylisé en orange #FFBA00
+img.save('static/description/icon.png')
+```
+- **Règle** : ne jamais remplacer ce fichier par une icône thématique — il représente la marque Auguria
+
+### 5.2 Icône du menu — `static/description/menu_icon.png`
+
+C'est l'icône affichée dans la **barre de navigation Odoo** (menu applicatif en haut). Elle est **unique à chaque module** et représente visuellement son rôle fonctionnel.
+
+#### Analyse
 Avant de générer l'icône, identifier le **domaine fonctionnel** du module :
 - Lire le `__manifest__.py` : `name`, `summary`, `category`, `depends`
 - Lire les noms de modèles (`_name`, `_description`) dans les fichiers Python
 - Identifier le domaine métier
 
-### Design de l'icône
-Générer `static/description/icon.png` — PNG `128×128 px` :
+#### Design
+Générer `static/description/menu_icon.png` — PNG `128×128 px` :
 
 - **Fond** : Bleu Auguria `#185ADB`, coins arrondis (~20%)
 - **Pictogramme** : blanc `#FFFFFF`, centré, représentatif du rôle :
@@ -255,7 +280,7 @@ Générer `static/description/icon.png` — PNG `128×128 px` :
 - **Accent** : un élément en Orange `#FFBA00` (contour, détail, badge, bande)
 - **Style** : flat design, lignes épurées, sans texte, lisible en 30px
 
-### Méthode de génération (Pillow)
+#### Méthode de génération (Pillow)
 ```python
 from PIL import Image, ImageDraw
 
@@ -269,20 +294,20 @@ img = Image.new('RGBA', (SIZE, SIZE), (0, 0, 0, 0))
 draw = ImageDraw.Draw(img)
 draw.rounded_rectangle([0, 0, SIZE-1, SIZE-1], radius=RADIUS, fill=BLUE)
 # Accent orange + pictogramme blanc à adapter selon le rôle du module
-img.save('static/description/icon.png')
+img.save('static/description/menu_icon.png')
 ```
 
-### Attribut `web_icon`
-Vérifier que le menu root possède :
+### 5.3 Attribut `web_icon` sur le menu root
+Le `web_icon` doit pointer vers l'**icône du menu** (pas l'icône du module) :
 ```xml
 <menuitem id="nom_module_menu_root"
           name="Nom du Module"
-          web_icon="nom_module,static/description/icon.png"
+          web_icon="nom_module,static/description/menu_icon.png"
           .../>
 ```
 - Si absent : l'ajouter
-- Si incorrect : le corriger
-- Module d'héritage sans menu root propre : générer l'icône quand même, pas de `web_icon` à modifier
+- Si `web_icon` pointe vers `icon.png` : le corriger vers `menu_icon.png`
+- Module d'héritage sans menu root propre : générer `menu_icon.png` quand même (pour le store), pas de `web_icon` à modifier
 
 ---
 
@@ -726,8 +751,9 @@ Avant de livrer le module repackagé, vérifier :
 - [ ] `__manifest__.py` complet (auteur, site web, version, catégorie, summary, description)
 - [ ] `README.rst` rédigé avec le contenu fonctionnel du module
 - [ ] `index.html` conforme au gabarit cartouche Auguria avec sections techniques remplies
-- [ ] `icon.png` générée (128×128, fond bleu, pictogramme blanc, accent orange, cohérent avec le rôle)
-- [ ] `web_icon` présent sur le menu root (si applicable)
+- [ ] `icon.png` = logo G condensé Auguria (128×128, identité marque, identique pour tous les modules)
+- [ ] `menu_icon.png` générée (128×128, fond bleu, pictogramme blanc, accent orange, spécifique au rôle du module)
+- [ ] `web_icon` du menu root pointe vers `menu_icon.png` (pas `icon.png`)
 - [ ] Fichiers `data` dans le manifest listés dans le bon ordre
 - [ ] Pas d'import inutilisé dans les fichiers Python
 - [ ] Encodage UTF-8 sur tous les fichiers
@@ -736,4 +762,4 @@ Avant de livrer le module repackagé, vérifier :
 
 ---
 
-*Version : 3.1 — Mars 2026*
+*Version : 3.2 — Mars 2026*
