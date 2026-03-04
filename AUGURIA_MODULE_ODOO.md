@@ -31,11 +31,11 @@ Quand l'utilisateur demande de **mettre à jour un module** en joignant ce fichi
 
 | Nom | HEX | Usage |
 |-----|-----|-------|
-| **Bleu Auguria** | `#185ADB` | Couleur principale — titres, bordures, onglets actifs, en-têtes tableaux |
+| **Bleu Auguria** | `#185ADB` | Couleur principale — titres, bordures, en-têtes tableaux, encadrés |
 | **Orange Auguria** | `#FFBA00` | Accent — barres, bordures gauche titres, badges, détails icône |
 | Bleu foncé | `#0D2760` | Texte sombre, labels techniques, sous-titres |
 | Gris texte | `#333333` | Corps de texte |
-| Gris clair | `#F5F5F5` | Fonds de sections, onglets inactifs, pied de cartouche |
+| Gris clair | `#F5F5F5` | Fonds de sections, encadrés techniques, pied de cartouche |
 | Blanc | `#FFFFFF` | Fonds principaux |
 | Vert validation | `#27AE60` | ✓ dans les tableaux de droits |
 | Rouge refus | `#E74C3C` | ✗ dans les tableaux de droits |
@@ -223,8 +223,8 @@ Appliquer le gabarit cartouche industriel Auguria (voir section 6 pour le gabari
 - **Cartouche en-tête** : logo Auguria base64, nom du module, description, version/licence/auteur/catégorie
 - **Section Description** : résumé fonctionnel
 - **Section Fonctionnalités** : liste extraite du code
-- **Onglet Dépendances** : badges des modules requis (extraits de `depends`)
-- **Onglet Technique** : tableaux des vues, groupes de sécurité avec matrice CRUD, modèles de données
+- **Section Dépendances** : badges des modules requis (extraits de `depends`)
+- **Section Technique** : tableaux des vues, groupes de sécurité avec matrice CRUD, modèles de données
 - **Pied de cartouche** : informations Auguria
 
 ---
@@ -369,105 +369,111 @@ Vérifier que le menu root possède :
             </ul>
         </div>
 
-        <!-- ONGLETS CSS PUR -->
-        <style>
-            .aug-tabs { margin-bottom: 28px; }
-            .aug-tabs input[type="radio"] { display: none; }
-            .aug-tabs .aug-tab-labels { display: flex; border-bottom: 3px solid #185ADB; margin-bottom: 0; }
-            .aug-tabs .aug-tab-labels label { padding: 10px 24px; font-size: 13px; font-weight: 700; color: #0D2760; cursor: pointer; border: 2px solid transparent; border-bottom: none; border-radius: 6px 6px 0 0; margin-right: 4px; background: #F5F5F5; transition: background 0.2s, color 0.2s; user-select: none; }
-            .aug-tabs .aug-tab-labels label:hover { background: #E8ECF5; }
-            .aug-tabs .aug-tab-panel { display: none; padding: 20px 16px; border: 2px solid #185ADB; border-top: none; border-radius: 0 0 6px 6px; background: #FFFFFF; }
-            .aug-tabs #aug-tab1:checked ~ .aug-tab-labels label[for="aug-tab1"],
-            .aug-tabs #aug-tab2:checked ~ .aug-tab-labels label[for="aug-tab2"] { background: #185ADB; color: #FFFFFF; border-color: #185ADB; }
-            .aug-tabs #aug-tab1:checked ~ .aug-panel-1,
-            .aug-tabs #aug-tab2:checked ~ .aug-panel-2 { display: block; }
-            .aug-badge { display: inline-block; background: #185ADB; color: #FFFFFF; font-size: 12px; font-weight: 600; padding: 4px 14px; border-radius: 3px; margin: 4px 4px 4px 0; }
-            .aug-badge-outline { display: inline-block; background: #FFFFFF; color: #185ADB; font-size: 12px; font-weight: 600; padding: 4px 14px; border-radius: 3px; border: 2px solid #185ADB; margin: 4px 4px 4px 0; }
-            .aug-tech-section { margin-bottom: 18px; }
-            .aug-tech-title { font-size: 14px; font-weight: 700; color: #0D2760; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 2px solid #FFBA00; display: inline-block; }
-            .aug-tech-table { width: 100%; border-collapse: collapse; font-size: 12px; color: #333333; }
-            .aug-tech-table thead th { background: #185ADB; color: #FFFFFF; font-weight: 600; padding: 8px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
-            .aug-tech-table thead th:first-child { border-radius: 4px 0 0 0; }
-            .aug-tech-table thead th:last-child { border-radius: 0 4px 0 0; }
-            .aug-tech-table tbody td { padding: 8px 12px; border-bottom: 1px solid #E8ECF5; }
-            .aug-tech-table tbody tr:nth-child(even) { background: #F9FAFE; }
-            .aug-tech-table tbody tr:hover { background: #EEF2FB; }
-            .aug-tech-table code { background: #F0F3FA; padding: 2px 6px; border-radius: 3px; font-size: 11px; color: #0D2760; }
-        </style>
+        <!-- ============================================================ -->
+        <!-- DÉPENDANCES                                                   -->
+        <!-- ============================================================ -->
+        <div style="margin-bottom: 28px;">
+            <h2 style="color: #185ADB; font-size: 18px; font-weight: 700; border-left: 4px solid #FFBA00; padding-left: 12px; margin-bottom: 16px;">Dépendances</h2>
 
-        <div class="aug-tabs">
-            <input type="radio" id="aug-tab1" name="aug-tabs" checked="checked" />
-            <input type="radio" id="aug-tab2" name="aug-tabs" />
-            <div class="aug-tab-labels">
-                <label for="aug-tab1">📦 Dépendances</label>
-                <label for="aug-tab2">⚙ Technique</label>
-            </div>
-
-            <!-- ONGLET 1 : DÉPENDANCES -->
-            <div class="aug-tab-panel aug-panel-1">
-                <div class="aug-tech-section">
-                    <div class="aug-tech-title">Modules Odoo requis</div>
-                    <p style="color: #333333; font-size: 12px; line-height: 1.7; margin-bottom: 12px;">
-                        Ce module nécessite l'installation préalable des modules suivants :
-                    </p>
-                    <div>
-                        <span class="aug-badge">base</span>
-                    </div>
-                </div>
-                <div class="aug-tech-section" style="margin-bottom: 0;">
-                    <div class="aug-tech-title">Modules optionnels</div>
-                    <p style="color: #999; font-size: 12px; font-style: italic;">Aucun module optionnel requis.</p>
+            <!-- Modules requis -->
+            <div style="margin-bottom: 16px; padding-left: 16px;">
+                <div style="font-size: 14px; font-weight: 700; color: #0D2760; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 2px solid #FFBA00; display: inline-block;">Modules Odoo requis</div>
+                <p style="color: #333333; font-size: 12px; line-height: 1.7; margin-bottom: 12px;">
+                    Ce module nécessite l'installation préalable des modules suivants :
+                </p>
+                <div>
+                    <span style="display: inline-block; background: #185ADB; color: #FFFFFF; font-size: 12px; font-weight: 600; padding: 4px 14px; border-radius: 3px; margin: 4px 4px 4px 0;">base</span>
                 </div>
             </div>
 
-            <!-- ONGLET 2 : TECHNIQUE -->
-            <div class="aug-tab-panel aug-panel-2">
-                <div class="aug-tech-section">
-                    <div class="aug-tech-title">Vues impactées</div>
-                    <table class="aug-tech-table">
-                        <thead><tr><th>Vue</th><th>Type</th><th>Modèle</th></tr></thead>
-                        <tbody>
-                            <tr><td><code>xml_id</code></td><td>Type</td><td><code>model.name</code></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="aug-tech-section">
-                    <div class="aug-tech-title">Groupes de sécurité &amp; Droits</div>
-                    <table class="aug-tech-table">
-                        <thead><tr><th>Groupe</th><th>XML ID</th><th>Lecture</th><th>Écriture</th><th>Création</th><th>Suppression</th></tr></thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="aug-badge-outline">Utilisateur</span></td>
-                                <td><code>group_xml_id</code></td>
-                                <td style="color: #27AE60; font-weight: 700; text-align: center;">✓</td>
-                                <td style="color: #27AE60; font-weight: 700; text-align: center;">✓</td>
-                                <td style="color: #27AE60; font-weight: 700; text-align: center;">✓</td>
-                                <td style="color: #E74C3C; font-weight: 700; text-align: center;">✗</td>
-                            </tr>
-                            <tr>
-                                <td><span class="aug-badge">Manager</span></td>
-                                <td><code>group_xml_id</code></td>
-                                <td style="color: #27AE60; font-weight: 700; text-align: center;">✓</td>
-                                <td style="color: #27AE60; font-weight: 700; text-align: center;">✓</td>
-                                <td style="color: #27AE60; font-weight: 700; text-align: center;">✓</td>
-                                <td style="color: #27AE60; font-weight: 700; text-align: center;">✓</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="aug-tech-section" style="margin-bottom: 0;">
-                    <div class="aug-tech-title">Modèles de données</div>
-                    <table class="aug-tech-table">
-                        <thead><tr><th>Modèle</th><th>Description</th><th>Type</th></tr></thead>
-                        <tbody>
-                            <tr>
-                                <td><code>model.name</code></td>
-                                <td>Description</td>
-                                <td><span class="aug-badge-outline">Persistant</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <!-- Modules optionnels -->
+            <div style="padding-left: 16px;">
+                <div style="font-size: 14px; font-weight: 700; color: #0D2760; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 2px solid #FFBA00; display: inline-block;">Modules optionnels</div>
+                <p style="color: #999999; font-size: 12px; font-style: italic;">Aucun module optionnel requis.</p>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- INFORMATIONS TECHNIQUES                                       -->
+        <!-- ============================================================ -->
+        <div style="margin-bottom: 28px;">
+            <h2 style="color: #185ADB; font-size: 18px; font-weight: 700; border-left: 4px solid #FFBA00; padding-left: 12px; margin-bottom: 16px;">Informations techniques</h2>
+
+            <!-- Vues impactées -->
+            <div style="margin-bottom: 20px; padding-left: 16px;">
+                <div style="font-size: 14px; font-weight: 700; color: #0D2760; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 2px solid #FFBA00; display: inline-block;">Vues impactées</div>
+                <table style="width: 100%; border-collapse: collapse; font-size: 12px; color: #333333;">
+                    <thead>
+                        <tr>
+                            <th style="background: #185ADB; color: #FFFFFF; font-weight: 600; padding: 8px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; border-radius: 4px 0 0 0;">Vue</th>
+                            <th style="background: #185ADB; color: #FFFFFF; font-weight: 600; padding: 8px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Type</th>
+                            <th style="background: #185ADB; color: #FFFFFF; font-weight: 600; padding: 8px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; border-radius: 0 4px 0 0;">Modèle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5;"><code style="background: #F0F3FA; padding: 2px 6px; border-radius: 3px; font-size: 11px; color: #0D2760;">xml_id</code></td>
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5;">Type</td>
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5;"><code style="background: #F0F3FA; padding: 2px 6px; border-radius: 3px; font-size: 11px; color: #0D2760;">model.name</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Groupes de sécurité & Droits -->
+            <div style="margin-bottom: 20px; padding-left: 16px;">
+                <div style="font-size: 14px; font-weight: 700; color: #0D2760; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 2px solid #FFBA00; display: inline-block;">Groupes de sécurité &amp; Droits</div>
+                <table style="width: 100%; border-collapse: collapse; font-size: 12px; color: #333333;">
+                    <thead>
+                        <tr>
+                            <th style="background: #185ADB; color: #FFFFFF; font-weight: 600; padding: 8px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; border-radius: 4px 0 0 0;">Groupe</th>
+                            <th style="background: #185ADB; color: #FFFFFF; font-weight: 600; padding: 8px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">XML ID</th>
+                            <th style="background: #185ADB; color: #FFFFFF; font-weight: 600; padding: 8px 12px; text-align: center; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Lecture</th>
+                            <th style="background: #185ADB; color: #FFFFFF; font-weight: 600; padding: 8px 12px; text-align: center; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Écriture</th>
+                            <th style="background: #185ADB; color: #FFFFFF; font-weight: 600; padding: 8px 12px; text-align: center; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Création</th>
+                            <th style="background: #185ADB; color: #FFFFFF; font-weight: 600; padding: 8px 12px; text-align: center; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; border-radius: 0 4px 0 0;">Suppression</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5;"><span style="display: inline-block; background: #FFFFFF; color: #185ADB; font-size: 12px; font-weight: 600; padding: 4px 14px; border-radius: 3px; border: 2px solid #185ADB;">Utilisateur</span></td>
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5;"><code style="background: #F0F3FA; padding: 2px 6px; border-radius: 3px; font-size: 11px; color: #0D2760;">group_xml_id</code></td>
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5; color: #27AE60; font-weight: 700; text-align: center;">&#10003;</td>
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5; color: #27AE60; font-weight: 700; text-align: center;">&#10003;</td>
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5; color: #27AE60; font-weight: 700; text-align: center;">&#10003;</td>
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5; color: #E74C3C; font-weight: 700; text-align: center;">&#10007;</td>
+                        </tr>
+                        <tr style="background: #F9FAFE;">
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5;"><span style="display: inline-block; background: #185ADB; color: #FFFFFF; font-size: 12px; font-weight: 600; padding: 4px 14px; border-radius: 3px;">Manager</span></td>
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5;"><code style="background: #F0F3FA; padding: 2px 6px; border-radius: 3px; font-size: 11px; color: #0D2760;">group_xml_id</code></td>
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5; color: #27AE60; font-weight: 700; text-align: center;">&#10003;</td>
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5; color: #27AE60; font-weight: 700; text-align: center;">&#10003;</td>
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5; color: #27AE60; font-weight: 700; text-align: center;">&#10003;</td>
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5; color: #27AE60; font-weight: 700; text-align: center;">&#10003;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Modèles de données -->
+            <div style="padding-left: 16px;">
+                <div style="font-size: 14px; font-weight: 700; color: #0D2760; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 2px solid #FFBA00; display: inline-block;">Modèles de données</div>
+                <table style="width: 100%; border-collapse: collapse; font-size: 12px; color: #333333;">
+                    <thead>
+                        <tr>
+                            <th style="background: #185ADB; color: #FFFFFF; font-weight: 600; padding: 8px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; border-radius: 4px 0 0 0;">Modèle</th>
+                            <th style="background: #185ADB; color: #FFFFFF; font-weight: 600; padding: 8px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Description</th>
+                            <th style="background: #185ADB; color: #FFFFFF; font-weight: 600; padding: 8px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; border-radius: 0 4px 0 0;">Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5;"><code style="background: #F0F3FA; padding: 2px 6px; border-radius: 3px; font-size: 11px; color: #0D2760;">model.name</code></td>
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5;">Description</td>
+                            <td style="padding: 8px 12px; border-bottom: 1px solid #E8ECF5;"><span style="display: inline-block; background: #FFFFFF; color: #185ADB; font-size: 12px; font-weight: 600; padding: 4px 14px; border-radius: 3px; border: 2px solid #185ADB;">Persistant</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -485,7 +491,7 @@ Vérifier que le menu root possède :
 </section>
 ```
 
-> **Note** : Remplacer `{LOGO_BASE64}` par la chaîne base64 complète du logo Auguria fournie dans la section 1. Remplir tous les contenus (nom, description, vues, groupes, modèles) à partir de l'analyse du code source du module.
+> **Note** : Remplacer `{LOGO_BASE64}` par la chaîne base64 complète du logo Auguria fournie dans la section 1. Remplir tous les contenus (nom, description, dépendances, vues, groupes, modèles) à partir de l'analyse du code source du module. Le gabarit utilise exclusivement des **styles inline** pour garantir un rendu correct dans Odoo (apps.odoo.com et back-office). Aucune balise `<style>`, `<script>`, ni class CSS externe.
 
 ---
 
@@ -719,7 +725,7 @@ Avant de livrer le module repackagé, vérifier :
 - [ ] Sections séparées par des commentaires dans les classes Python
 - [ ] `__manifest__.py` complet (auteur, site web, version, catégorie, summary, description)
 - [ ] `README.rst` rédigé avec le contenu fonctionnel du module
-- [ ] `index.html` conforme au gabarit cartouche Auguria avec onglets remplis
+- [ ] `index.html` conforme au gabarit cartouche Auguria avec sections techniques remplies
 - [ ] `icon.png` générée (128×128, fond bleu, pictogramme blanc, accent orange, cohérent avec le rôle)
 - [ ] `web_icon` présent sur le menu root (si applicable)
 - [ ] Fichiers `data` dans le manifest listés dans le bon ordre
@@ -730,4 +736,4 @@ Avant de livrer le module repackagé, vérifier :
 
 ---
 
-*Version : 3.0 — Mars 2026*
+*Version : 3.1 — Mars 2026*
