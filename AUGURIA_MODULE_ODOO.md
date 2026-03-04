@@ -735,7 +735,7 @@ Quand l'utilisateur renvoie le fichier `controle_qualite.md` avec des cases coch
 2. Appliquer **uniquement** les corrections correspondantes sur le code source
 3. Mettre à jour les dates de mise à jour dans les en-têtes des fichiers modifiés
 4. Régénérer le `controle_qualite.md` pour refléter les corrections appliquées
-5. Livrer le module corrigé en ZIP
+5. Livrer le module corrigé en ZIP et le rapport controle_qualite.md indépendemment
 
 ---
 
