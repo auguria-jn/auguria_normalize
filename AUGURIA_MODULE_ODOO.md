@@ -44,8 +44,8 @@ Quand l'utilisateur demande de **mettre à jour un module** en joignant ce fichi
 | Jaune transient texte | `#856404` | Badge "Transient" |
 
 ### Informations société
-- **Auteur** : `AUDURIA by ANOR`
-- **Site web** : `https://auduria.fr`
+- **Auteur** : `AUGURIA by ANOR`
+- **Site web** : `https://www.auguria.fr`
 - **Raison sociale** : Auguria
 - **Activité** : Consultant - Intégrateur Odoo — PME, ETI, grandes entreprises
 - **Implantations** : Nantes, Paris
@@ -86,7 +86,7 @@ Quand l'utilisateur demande de **mettre à jour un module** en joignant ce fichi
 # Module : nom_technique_module
 # Fichier : nom_du_fichier.py
 # Description : Description fonctionnelle du fichier (1-2 lignes)
-# Auteur : AUDURIA by ANOR
+# Auteur : auguria by ANOR
 # Création : YYYY-MM-DD
 # Mise à jour : YYYY-MM-DD
 # =============================================================================
@@ -99,7 +99,7 @@ Quand l'utilisateur demande de **mettre à jour un module** en joignant ce fichi
     Module : nom_technique_module
     Fichier : nom_du_fichier.xml
     Description : Description fonctionnelle du fichier
-    Auteur : AUDURIA by ANOR
+    Auteur : AUGURIA by ANOR
     Création : YYYY-MM-DD
     Mise à jour : YYYY-MM-DD
 -->
@@ -113,7 +113,7 @@ Quand l'utilisateur demande de **mettre à jour un module** en joignant ce fichi
 // Module : nom_technique_module
 // Fichier : nom_du_fichier.js
 // Description : Description fonctionnelle du fichier
-// Auteur : AUDURIA by ANOR
+// Auteur : AUGURIA by ANOR
 // Création : YYYY-MM-DD
 // Mise à jour : YYYY-MM-DD
 // =============================================================================
@@ -125,7 +125,7 @@ Quand l'utilisateur demande de **mettre à jour un module** en joignant ce fichi
    Module : nom_technique_module
    Fichier : nom_du_fichier.css
    Description : Description fonctionnelle du fichier
-   Auteur : AUDURIA by ANOR
+   Auteur : AUGURIA by ANOR
    Création : YYYY-MM-DD
    Mise à jour : YYYY-MM-DD
    ============================================================================= */
@@ -199,8 +199,8 @@ def action_validate(self):
 ## 4. Mise en forme des fichiers descriptifs
 
 ### `__manifest__.py`
-- **author** : `'AUDURIA by ANOR'`
-- **website** : `'https://auduria.fr'`
+- **author** : `'AUGURIA by ANOR'`
+- **website** : `'https://www.auduria.fr'`
 - **license** : `'LGPL-3'` (sauf indication contraire)
 - **version** : format `<odoo_version>.<major>.<minor>.<patch>` (ex: `17.0.1.0.0`)
 - **category** : catégorie Odoo appropriée au rôle du module
@@ -215,7 +215,7 @@ def action_validate(self):
 - **Installation** : prérequis éventuels
 - **Configuration** : paramètres à configurer après installation
 - **Usage** : parcours utilisateur
-- **Auteurs / Maintainers** : AUDURIA by ANOR
+- **Auteurs / Maintainers** : AUGURIA by ANOR
 
 ### `static/description/index.html`
 Appliquer le gabarit cartouche industriel Auguria (voir section 6 pour le gabarit complet) :
@@ -312,7 +312,7 @@ Vérifier que le menu root possède :
                     background: #FFFFFF;
                     min-width: 180px;
                 ">
-                    <img src="data:image/png;base64,{LOGO_BASE64}" alt="Auguria" style="max-height: 52px;" />
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAABwCAMAAAC6s4C9AAAAwFBMVEX///8YWtv/ugD/uAATWNsAUtrp7/z/zVf/1HAAVNr/+Of/wSW0xvEza97/8dTX4Pj/tQAATNn//fT/9uD/vxj/9dV9muf09/3/zWBAcd9HdN8AT9kAStn/6rj8/f8YXdxWgePM1/a/0PVulOclZN3s8vyCoOmcs+2uwfD/wy7/7sv/1nzZ4vj/24yIperi6fpdheOnvO9njeWXr+wARdj/x0r/46f/4J3/2YX/xT3/6r9LeuH/4aD/yE7/zFz/3pUIyzvEAAAJgUlEQVR4nO2daVfiShCGwSSOUZDNa8SwG3dw1zsOM9f//68uXRUyQKo6JGlApZ4Pc87YTafTb29VvaRQEARBEARBEARBEARBEARBEARBEARB+JTUG+3R7V4eTvY3/Q5bTXvvwKpa+aj+s+m32GLa1xP5dvIiEm6MxrUB/UTCDfIWCSgd6dfk31DBiQYHrz/y8NrY9LtsJ9M2aO38vJEZ5Vfkpho2wZ+bzomQjfoOtEHr6GbTOREyMkIFr2UU+6o0wmFQFPyy3EIjrLY3nQ8hK/sHSkLrZNP5EDJzg/bE4abzIWQG+lHrfdPZELLzDhL+3nQ2hOzgUCj96NelriS0jsSiWCW7ivOkWOcQzUsI78T+rpOwvp+BFM8O6XBviAEM52x63r0iscQwmaRYJugHZcV9QrQLFS0YcMFeTyXSjb8XL+Hh3uv1QWqoqS08uzzk8jaE4B4R0C3zNMcXTIqlbhAE3QvucSFLlqsJHhx7gn+XEO1YRfNLXLDXdCfhrXilYyW8zbYFg1ovhGe7FS5vlaIKbhIBLVuHU7sk0yv5KvCYe1zIE5Srk1SuBrhvFRV2kNAxHLuTWA4v4ak9CU8h4UnV3Kp9c/Js2+Yl7KrwUyKgVtRit0gBSs4kzE2QcFJvIAmfH3tMAdIodegaNx/PnISjrLswViAh2QSxVPwrIr2lJDxzwnJ91sfLz/00s3agj2hWwv1w/Sm9kOtqhS42oibRiJaRcNedlmt51c3wTmUHnsbLA5iV8A0VfP91mII/1ioktMuVYSXGsH+KpdKP/2wZCZ+jciUbskF2A/V247L6lxjvZzArIXrdXtNl9mQ1EjYZ6wHeiOoHl5Cwo37rnkG5jlnrxAiX/uQZTuVSZarFWgwKsxKCGtZbusyuWcIrH2SIBywhoSrXYusekvC15ZqXDjTCXsFT7+I+6arLCiRMu4S4Zgn7tcwSek184jk2Q03M3FypzChj78yF1qiJKhJGJEtY8sPCUlMN2yXGU2NAJVFTpoqamFLZjRAJIxIl7PSgXCfp3quJqfvER81LX5n1PhiEY5g9abxBImFEooR9x56Wq+reii+r87I9QPcJdstAZUvnNBIJIxIl7KlyDaAsKqqVOEn+1MxU/L/Je6oZ2l3esS4SRiRJCKPSVDYoVztxWSMjShXbDd3xj77eGyQSRiRJiHPD4UzkVXnZ7sGP1Av/dx6ANcrGFgkjEiT0WsXZKQw8vLyaZngxP+EFlxDvDRIJIxIkBJ9lKypXsPL9Ry52HkLfWvT/c9/WvI9I+Be9hF63OOethO6NdJfn5nJq1k+B+W+N8watXMK9kxh16kdrk3CQzcGGk4qZ3uzCSV5EyEaw2EdXlDXjPjAvtHIJD+Ir9PvUj9Ym4RO8MbHoq5UQCsLuzqQ5LCYvImSCmCnBwzkv28olvI6vHa5HQiJAcQdr4dRWE62EpfjMHuuCeS8b+NbcuR4azHv3gY7/bSUs2q0XghasuttdwrGilRAb4dyvwLyPpv7GGNTiXoNOE7xsdFGstyNdp4Q6fMqvopNwoJyizvwA2gHvZY3dYZeNjvKtFVsLVQxHYjpva53O7FmfQ0JnTNlzOgnBt7a4ma6kKdfMgG8ttpCF81/aG7Reo+JTSGj7D6TDUSPhkJ4SwrBqm90WDD4gN2ZA3PHeoO8roe3PEO47c32/1moyb6uR8Jje/gBuE7NbSoeQ9fg891xVoqJNzbK/rYT26WCGRygB964/6LONhpdwt1UkrZRdMPcDk80QrU3CmQbmPekN+r4S9ub+BkVjN3U+TV5C6MWo4oPWmbRVNw27rOu1gtWI8AZ9YwnnGo03hhfVLbSzEuJcwic6MdjbDev4hnjmhzywKygv27ZIWKjg7k+NQ4yV8HFmAXaBB33xpQb34JN9BZj31NbHrZGw8Ag9kc9vluAk9Jr87hXwmSftmF+eK76yoNeG8gZtj4SFJ5Ao9ucITkLceEp3waF5b2hLaQdKu8bUMljeIrxsWyShBzvpfXalnZMQfGvcjsMrplwzAb411mWHy4jx8tgiCQslONNic45pRkLwrRGpIZ0u1AvdVt3lwZGVbdJocMSWyVBCdvHZC4xuyK+mlrDos0sBsB0pjYSFY3BecWeSGAlhKltjK/nzMkfalqOP2WPD8VjVy+JkB49AsT+DyVjxJR6Q6VjMBwQfLbvk27P5QagQLvYsmH8AKyH2KZxlQUs4fNHJPrE4oJHaJpzduHqlOTF1Ri51lsAZ5Tz0iZNcleElDB/UjEt7OO0/+hTaB4b+WEiKlRCqV9E9o7JWqYBZTU7fWAlDy4JpUrSE0E35GusdDo2a2FI6BF+PbkcVvlh3oTp5ofMwPBQ8j42uRcrUpCVs4GDHHBHFv1YXrxtiJazgeUyHzJuLC3/UkisvIc7qmH21pIS7jh3tq6ZB896Al+0i2eMKvUisPj37oVzssWY7IF6AOah9m3i+N9aP8hKiGcBkDfNGdooaCWHVaNLpUGGkhHfJbQz6+/xbSj2osJpd29Msxr1sY5+q5DNNkZxPMxLW3xM0tKqx20l4Cb2yo8+bS94GoZMQpwRkx0hJiL41RzvSDbB7y+tle17mwo1AVd7W4nDZOas5mis+/ICcEnI3XtRPtJeWVN/j98vwEha8ccvls+bWaLc1XFrC2fAleFmqWlKXlmC59siUokyeqjzm3VLagetsgoRp0SPcehM3QyvH/E0740d6GOCvDro54S8I+vO22IsWtBIWOoMnPm9PA1olvDqIOxmLlyURvkbi6iBvDOWasMUJyzXnidHOUrdKhbGIV+Pvu+K6B90FXqlu6SoU/tNIqM2b/j25mR1bCsQFXnyJEbH0kT4hcBOiiRtl668goVzIt3Zgc6GJyyzrRyBh/oSElPwACT/yJ9SogsmYPyEhJegsM3CxM9z5Zf3Jn5CQkkM0AHP3pGhJpr2rRjBAWPS5P3LwZqgqCOnBSw+rOT/YhBfvxVzfwjoIC/8o31fv0CFnyZe7NsIHLOBar3k0vMU09oxlSkgFWvcW4fZckn28Q9haXMcX1kUD1wUta5Tt92/TFcRfZvMlLM+v6EOwo7Qfgq0f/j4Kf1014B8QstKOPse8k+5zzH+ud6KfymdkN0p7Z7rEm/arBtFmDDHqN8z+a4a71GfW8LPPhQRjtN+r2VS0rOqBfHntc3A4erdSfyOmWr3+KQb956HeaI9u91JwO2o3iD0YgiAIgiAIgiAIgiAIgiAIgiAIgiAI35H/Aa8eD7oGfRR5AAAAAElFTkSuQmCC" alt="Auguria" style="max-height: 52px;" />
                 </div>
 
                 <!-- Titre du module -->
@@ -344,7 +344,7 @@ Vérifier que le menu root possède :
                 ">
                     <div><span style="font-weight: 700; color: #0D2760;">Version :</span> 17.0.1.0.0</div>
                     <div><span style="font-weight: 700; color: #0D2760;">Licence :</span> LGPL-3</div>
-                    <div><span style="font-weight: 700; color: #0D2760;">Auteur :</span> AUDURIA by ANOR</div>
+                    <div><span style="font-weight: 700; color: #0D2760;">Auteur :</span> AUGURIA by ANOR</div>
                     <div><span style="font-weight: 700; color: #0D2760;">Catégorie :</span> Catégorie</div>
                 </div>
 
@@ -475,7 +475,7 @@ Vérifier que le menu root possède :
             <div style="background: #FFBA00; height: 4px; width: 100%;"></div>
             <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 24px; background: #F5F5F5; font-size: 11px; color: #333333;">
                 <div><span style="font-weight: 700; color: #0D2760;">Auguria</span> — Consultant &amp; Intégrateur Odoo — Nantes &amp; Paris</div>
-                <div><a href="https://auduria.fr" style="color: #185ADB; font-weight: 600; text-decoration: none;">auduria.fr</a></div>
+                <div><a href="https://www.auduria.fr" style="color: #185ADB; font-weight: 600; text-decoration: none;">AUGURIA.fr</a></div>
             </div>
             <div style="background: #FFBA00; height: 4px; width: 100%;"></div>
         </div>
@@ -484,7 +484,7 @@ Vérifier que le menu root possède :
 </section>
 ```
 
-> **Note** : Remplacer `{LOGO_BASE64}` par la chaîne base64 complète du logo Auguria fournie dans la section 1. Remplir tous les contenus (nom, description, vues, groupes, modèles) à partir de l'analyse du code source du module.
+> **Note** : Le logo Auguria est déjà intégré en base64 directement dans le gabarit ci-dessus — aucune substitution nécessaire. Remplir tous les contenus variables (nom du module, description, vues, groupes, modèles) à partir de l'analyse du code source du module.
 
 ---
 
@@ -494,7 +494,7 @@ Avant de livrer le module repackagé, vérifier :
 
 - [ ] Aucune ligne vide multiple consécutive dans les XML
 - [ ] Indentation uniforme 4 espaces dans tous les fichiers
-- [ ] En-tête AUDURIA présent dans chaque fichier source (.py, .xml, .js, .css)
+- [ ] En-tête AUGURIA présent dans chaque fichier source (.py, .xml, .js, .css)
 - [ ] Commentaires fonctionnels sur les classes, méthodes non triviales, et champs à logique métier
 - [ ] Sections séparées par des commentaires dans les classes Python
 - [ ] `__manifest__.py` complet (auteur, site web, version, catégorie, summary, description)
