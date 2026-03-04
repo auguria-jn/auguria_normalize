@@ -45,8 +45,8 @@ Quand l'utilisateur demande de **mettre à jour un module** en joignant ce fichi
 | Jaune transient texte | `#856404` | Badge "Transient" |
 
 ### Informations société
-- **Auteur** : `AUDURIA by ANOR`
-- **Site web** : `https://auduria.fr`
+- **Auteur** : `AUGURIA by ANOR`
+- **Site web** : `https://www.auguria.fr`
 - **Raison sociale** : Auguria
 - **Activité** : Consultant - Intégrateur Odoo — PME, ETI, grandes entreprises
 - **Implantations** : Nantes, Paris
@@ -87,7 +87,7 @@ Quand l'utilisateur demande de **mettre à jour un module** en joignant ce fichi
 # Module : nom_technique_module
 # Fichier : nom_du_fichier.py
 # Description : Description fonctionnelle du fichier (1-2 lignes)
-# Auteur : AUDURIA by ANOR
+# Auteur : AUGURIA by ANOR
 # Création : YYYY-MM-DD
 # Mise à jour : YYYY-MM-DD
 # =============================================================================
@@ -100,7 +100,7 @@ Quand l'utilisateur demande de **mettre à jour un module** en joignant ce fichi
     Module : nom_technique_module
     Fichier : nom_du_fichier.xml
     Description : Description fonctionnelle du fichier
-    Auteur : AUDURIA by ANOR
+    Auteur : AUGURIA by ANOR
     Création : YYYY-MM-DD
     Mise à jour : YYYY-MM-DD
 -->
@@ -114,7 +114,7 @@ Quand l'utilisateur demande de **mettre à jour un module** en joignant ce fichi
 // Module : nom_technique_module
 // Fichier : nom_du_fichier.js
 // Description : Description fonctionnelle du fichier
-// Auteur : AUDURIA by ANOR
+// Auteur : AUGURIA by ANOR
 // Création : YYYY-MM-DD
 // Mise à jour : YYYY-MM-DD
 // =============================================================================
@@ -126,7 +126,7 @@ Quand l'utilisateur demande de **mettre à jour un module** en joignant ce fichi
    Module : nom_technique_module
    Fichier : nom_du_fichier.css
    Description : Description fonctionnelle du fichier
-   Auteur : AUDURIA by ANOR
+   Auteur : AUGURIA by ANOR
    Création : YYYY-MM-DD
    Mise à jour : YYYY-MM-DD
    ============================================================================= */
@@ -200,8 +200,8 @@ def action_validate(self):
 ## 4. Mise en forme des fichiers descriptifs
 
 ### `__manifest__.py`
-- **author** : `'AUDURIA by ANOR'`
-- **website** : `'https://auduria.fr'`
+- **author** : `'AUGURIA by ANOR'`
+- **website** : `'https://www.auguria.fr'`
 - **license** : `'LGPL-3'` (sauf indication contraire)
 - **version** : format `<odoo_version>.<major>.<minor>.<patch>` (ex: `17.0.1.0.0`)
 - **category** : catégorie Odoo appropriée au rôle du module
@@ -216,7 +216,7 @@ def action_validate(self):
 - **Installation** : prérequis éventuels
 - **Configuration** : paramètres à configurer après installation
 - **Usage** : parcours utilisateur
-- **Auteurs / Maintainers** : AUDURIA by ANOR
+- **Auteurs / Maintainers** : AUGURIA by ANOR
 
 ### `static/description/index.html`
 Appliquer le gabarit cartouche industriel Auguria (voir section 6 pour le gabarit complet) :
@@ -371,7 +371,7 @@ Le `web_icon` doit pointer vers l'**icône du menu** (pas l'icône du module) :
                 ">
                     <div><span style="font-weight: 700; color: #0D2760;">Version :</span> 17.0.1.0.0</div>
                     <div><span style="font-weight: 700; color: #0D2760;">Licence :</span> LGPL-3</div>
-                    <div><span style="font-weight: 700; color: #0D2760;">Auteur :</span> AUDURIA by ANOR</div>
+                    <div><span style="font-weight: 700; color: #0D2760;">Auteur :</span> AUGURIA by ANOR</div>
                     <div><span style="font-weight: 700; color: #0D2760;">Catégorie :</span> Catégorie</div>
                 </div>
 
@@ -508,7 +508,7 @@ Le `web_icon` doit pointer vers l'**icône du menu** (pas l'icône du module) :
             <div style="background: #FFBA00; height: 4px; width: 100%;"></div>
             <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 24px; background: #F5F5F5; font-size: 11px; color: #333333;">
                 <div><span style="font-weight: 700; color: #0D2760;">Auguria</span> — Consultant &amp; Intégrateur Odoo — Nantes &amp; Paris</div>
-                <div><a href="https://auduria.fr" style="color: #185ADB; font-weight: 600; text-decoration: none;">auduria.fr</a></div>
+                <div><a href="https://www.auguria.fr" style="color: #185ADB; font-weight: 600; text-decoration: none;">auguria.fr</a></div>
             </div>
             <div style="background: #FFBA00; height: 4px; width: 100%;"></div>
         </div>
@@ -736,7 +736,7 @@ Quand l'utilisateur renvoie le fichier `controle_qualite.md` avec des cases coch
 2. Appliquer **uniquement** les corrections correspondantes sur le code source
 3. Mettre à jour les dates de mise à jour dans les en-têtes des fichiers modifiés
 4. Régénérer le `controle_qualite.md` pour refléter les corrections appliquées
-5. Livrer le module corrigé en ZIP
+5. Livrer le module corrigé en ZIP et le fichier `controle_qualite.md` indépendemment
 
 ---
 
@@ -746,7 +746,7 @@ Avant de livrer le module repackagé, vérifier :
 
 - [ ] Aucune ligne vide multiple consécutive dans les XML
 - [ ] Indentation uniforme 4 espaces dans tous les fichiers
-- [ ] En-tête AUDURIA présent dans chaque fichier source (.py, .xml, .js, .css)
+- [ ] En-tête AUGURIA présent dans chaque fichier source (.py, .xml, .js, .css)
 - [ ] Commentaires fonctionnels sur les classes, méthodes non triviales, et champs à logique métier
 - [ ] Sections séparées par des commentaires dans les classes Python
 - [ ] `__manifest__.py` complet (auteur, site web, version, catégorie, summary, description)
